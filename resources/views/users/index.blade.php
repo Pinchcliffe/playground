@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Brukere <span class="text-muted">({{count($users)}})</span></div>
                     <div class="panel-body">
+                        <h2>Brukere <span class="label label-primary">{{count($users)}}</span></h2>
                         <table class="table table-striped table-hover table-bordered table-responsive">
                             <thead>
                             <tr>

@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect('home');
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 /*
  * ----------------------------------------------------------
  * USERS
@@ -32,9 +36,3 @@ Route::get('/users/{user}', 'UserController@show');
 
 Route::get('/news', 'NewsController@index');
 Route::get('/news/{news}', 'NewsController@show');
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
