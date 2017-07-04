@@ -8,9 +8,18 @@
                     <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> Skriv nyhet</div>
                     <div class="panel-body">
                         <form method="POST" action="/news">
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="title">Tittel</label>
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Tittel">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Bilde</label>
+                                <input type="text" class="form-control" id="image" name="image" placeholder="Lim inn URL..">
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Skrevet av:</label>
+                                <input type="text" class="form-control" id="author" name="author" value="{{ Auth::user()->name }}">
                             </div>
                             <div class="form-group">
                                 <label for="intro">Ingress</label>

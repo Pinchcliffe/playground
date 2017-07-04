@@ -8,7 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="active"><a href="#">Hjem</a></li>
+                        <li role="presentation"><a href="/users/{{ Auth::user()->id }}">Min profil</a></li>
+                        <li role="presentation"><a href="#">Innboks</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
