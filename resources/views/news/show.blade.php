@@ -8,6 +8,7 @@
                     <div class="panel-body">
                         <h1>{{ $news->title }}</h1>
                         <small>Publisert: {{ $news->created_at }} - Skrevet av: {{ $news->author }}</small>
+                        <img class="img-responsive" src="{{ $news->image }}" />
                         <hr>
                         <b>{{ $news->intro }}</b>
                         <p>{{ $news->content }}</p>

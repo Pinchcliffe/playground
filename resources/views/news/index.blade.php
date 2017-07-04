@@ -9,11 +9,20 @@
 
                     <div class="panel-body">
                         @foreach ($news as $new)
-                            <h4>{{ $new->title }}</h4>
-                            <small>Publisert: {{ $new->created_at }}, Skrevet av: {{ $new->author }}</small><br>
-                            <b>{{ $new->intro }}</b><br><br>
-                            <a href="/news/{{ $new->id }}"><span class="glyphicon glyphicon-info-sign"></span> Les mer</a>
-                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-8">
+                                        <h4>{{ $new->title }}</h4>
+                                        <small>Publisert: {{ $new->created_at }}, Skrevet av: {{ $new->author }}</small><br>
+                                        <b>{{ $new->intro }}</b><br><br>
+                                        <a href="/news/{{ $new->id }}"><span class="glyphicon glyphicon-info-sign"></span> Les mer</a>
+                                        <hr>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="{{ $new->image }}" />
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>

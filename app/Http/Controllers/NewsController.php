@@ -22,4 +22,9 @@ class NewsController extends Controller
 
         return view('news.show', compact('news'));
     }
+
+    public function create() {
+
+        return view('news.create');
+    }
 }
