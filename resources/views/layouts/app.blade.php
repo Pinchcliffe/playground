@@ -59,6 +59,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('messages/create') }}"><span class="glyphicon glyphicon-inbox"></span> Ny melding</a></li>
                                     <li><a href="{{ url('/news/create') }}"><span class="glyphicon glyphicon-pencil"></span> Skriv nyhet</a></li>
                                     <li><a href="{{ url('/users') }}"><span class="glyphicon glyphicon-user"></span> Administrer brukere</a></li>
                                     <li class="divider"></li>

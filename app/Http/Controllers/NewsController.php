@@ -43,6 +43,6 @@ class NewsController extends Controller
         // Lagre data i database
         $news->save();
 
-        return redirect('/news');
+        return redirect('/');
     }
 }
