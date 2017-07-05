@@ -18,5 +18,34 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Kommentarer <span class="label label-primary">{{ count($news->comments) }}</span>
+                    </div>
+                    <div class="panel-body">
+                        @if(count($news->comments) > 0)
+                        @foreach ($news->comments as $comment)
+                                <small>{{ $comment->created_at->diffForHumans() }}</small>
+                                <div class="alert alert-info">{{ $comment->content }}</div>
+                        @endforeach
+                        @else
+                            <p>Ingen kommentarer.</p>
+                        @endif
+                        <hr>
+                            <form method="POST" action="/news/{{ $news->id }}">
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <label for="content">Kommentar</label>
+                                    <textarea class="form-control" id="content" name="content" placeholder="Hva har du på hjertet?" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Kommenter</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

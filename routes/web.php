@@ -40,3 +40,4 @@ Route::get('/news/create', 'NewsController@create');
 Route::get('/news/{news}', 'NewsController@show');
 Route::get('/news', 'NewsController@index');
 Route::post('/news', 'NewsController@store');
+Route::post('/news/{news}', 'CommentsController@store');
