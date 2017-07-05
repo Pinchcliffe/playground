@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+
+        @include('layouts.error')
+
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">

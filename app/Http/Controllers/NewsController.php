@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validation;
 use App\News;
 use App\User;
 
@@ -14,7 +15,7 @@ class NewsController extends Controller
     }
 
     public function index() {
-        $news = News::query()->orderBy('id', 'desc')->get();
+        $news = News::query()->latest()->get();
 
         return view ('news.index', compact('news'));
     }
@@ -30,6 +31,13 @@ class NewsController extends Controller
     }
 
     public function store() {
+
+        $this->validate(request(), [
+            'title' => 'required',
+            'intro' => 'required',
+            'author' => 'required',
+            'content' => 'required'
+        ]);
 
         $news = new News;
 

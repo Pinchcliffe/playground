@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\News;
 
 class HomeController extends Controller
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = News::query()->orderBy('id', 'desc')->get();
+        $news = News::query()->latest()->get();
 
         return view('home', compact('news'));
     }

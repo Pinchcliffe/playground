@@ -32,7 +32,7 @@
                                 <div class="col-md-12">
                                     <div class="col-md-8">
                                         <a href="/news/{{ $new->id }}"><h4>{{ $new->title }}</h4></a>
-                                        <small>Publisert: {{ $new->created_at }}, Skrevet av: {{ $new->author }}</small><br>
+                                        <small>Publisert: {{ $new->created_at->toFormattedDateString() }}, Skrevet av: {{ $new->author }}</small><br>
                                         <b>{{ $new->intro }}</b><br><br>
                                         <a href="/news/{{ $new->id }}"><span class="glyphicon glyphicon-info-sign"></span> Les mer</a>
                                     </div>

@@ -29,5 +29,29 @@ class UserController extends Controller
         return view('users.show', ['users' => User::where('id', $users)->first()]);
     }
 
+    public function create() {
+        return view('users.create');
+    }
+
+    public function store() {
+
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = new User;
+
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->password = bcrypt(request('password'));
+
+        $user->save();
+
+        return redirect('/users');
+    }
+
 
 }
+
