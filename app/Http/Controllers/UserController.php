@@ -41,6 +41,17 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
+        // Metode 1
+
+        User::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => request('password')
+        ]);
+
+        // Metode 2
+
+        /*
         $user = new User;
 
         $user->name = request('name');
@@ -48,6 +59,7 @@ class UserController extends Controller
         $user->password = bcrypt(request('password'));
 
         $user->save();
+        */
 
         return redirect('/users');
     }
