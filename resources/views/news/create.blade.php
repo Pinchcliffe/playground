@@ -21,10 +21,6 @@
                                 <input type="text" class="form-control" id="image" name="image" placeholder="Lim inn URL..">
                             </div>
                             <div class="form-group">
-                                <label for="author">Skrevet av:</label>
-                                <input type="text" class="form-control" id="author" name="author" value="{{ Auth::user()->name }}">
-                            </div>
-                            <div class="form-group">
                                 <label for="intro">Ingress</label>
                                 <textarea class="form-control" id="intro" name="intro" placeholder="Ingress.." rows="2"></textarea>
                             </div>

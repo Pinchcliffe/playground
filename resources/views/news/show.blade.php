@@ -8,7 +8,7 @@
                     <div class="panel-heading"><a href="{{ url('/news') }}">Nyheter</a></div>
                     <div class="panel-body">
                         <h1>{{ $news->title }}</h1>
-                        <small>Publisert: {{ $news->created_at }} - Skrevet av: {{ $news->author }}</small>
+                        <small>Publisert: {{ $news->created_at->toFormattedDateString() }} - Skrevet av: {{ $news->user->name }}</small>
                         <hr>
                         <img class="img-responsive" src="{{ $news->image }}" />
                         <hr>
@@ -39,10 +39,13 @@
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="content">Kommentar</label>
-                                    <textarea class="form-control" id="content" name="content" placeholder="Hva har du på hjertet?" rows="2"></textarea>
+                                    <textarea class="form-control" id="content" name="content" placeholder="Hva har du på hjertet?" rows="2" required="required"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Kommenter</button>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Kommenter</button>
+                                </div>
                             </form>
+                            @include('layouts.error')
                     </div>
                 </div>
             </div>
