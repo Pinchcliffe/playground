@@ -26,10 +26,10 @@
     @if (Auth::guest())
         <div class="panel panel-default">
             <div class="panel-heading">
-                Laravel 5.4
+                <div class="text-center">Laravel 5.4</div>
             </div>
             <div class="panel-body">
-                <img class="img-circle" src="{{ asset('images/laravel.svg') }}" height="100" width="100" />
+                <img class="img-circle center-block" src="{{ asset('images/laravel.svg') }}" height="100" width="100" />
             </div>
         </div>
     @endif

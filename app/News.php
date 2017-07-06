@@ -28,14 +28,20 @@ class News extends Model
      public function addComment($content)
      {
          // Metode 1
-         $this->comments()->create(compact('content'));
+         //$this->comments()->create(compact('content'));
+
+         $this->comments()->create([
+             'content' => $content,
+             'user_id' => auth()->id()
+         ]);
 
          // Metode 2
          /*
          Comment::create([
              'content' => $content,
              'news_id' => $this->id
-         ]);*/
+         ]);
+         */
      }
 
      public function scopeFilter($query, $filters)

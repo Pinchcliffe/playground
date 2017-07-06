@@ -42,24 +42,22 @@ class NewsController extends Controller
         ]);
 
         // Metode 1
-
-        auth()->user()->publish(
+        /*auth()->user()->publish(
             new News(request([
                 'title', 'image', 'intro', 'content'
             ]))
-        );
+        );*/
+
 
         // Metode 2
 
-        /*
         News::create([
             'title' => request('title'),
             'image' => request('image'),
             'intro' => request('intro'),
             'content' => request('content'),
-            'user_id' => auth()->id()
+            'user_id' => 1
         ]);
-        */
 
         // Metode 3
 
