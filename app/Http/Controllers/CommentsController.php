@@ -10,10 +10,8 @@ class CommentsController extends Controller
 {
     public function store(News $news)
     {
-        Comment::create([
-            'content' => request('content'),
-            'news_id' => $news->id
-        ]);
+        $this->validate(request(), ['content' => 'required|min:2']);
+        $news->addComment(request('content'));
 
         return back();
     }
