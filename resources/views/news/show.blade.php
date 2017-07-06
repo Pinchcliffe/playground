@@ -19,7 +19,7 @@
         <div class="panel-body">
             @if(count($news->comments) > 0)
             @foreach ($news->comments as $comment)
-                    <small>{{ $comment->created_at->diffForHumans() }}</small>
+                    <small>Av: {{ $comment->user->name }} - {{ $comment->created_at->diffForHumans() }}</small>
                     <div class="alert alert-info">{{ $comment->content }}</div>
             @endforeach
             @else
