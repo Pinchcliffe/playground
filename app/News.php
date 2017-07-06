@@ -50,4 +50,14 @@ class News extends Model
          }
 
      }
+
+     public static function archives()
+     {
+
+         return static::query()->selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+             ->groupBy('year', 'month')
+             ->orderByRaw('min(created_at) desc')
+             ->get()
+             ->toArray();
+     }
 }

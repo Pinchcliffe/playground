@@ -20,14 +20,7 @@ class NewsController extends Controller
             ->filter(request(['month', 'year']))
             ->get();
 
-        // Midlertidig
-        $archives = News::query()->selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-            ->groupBy('year', 'month')
-            ->orderByRaw('min(created_at) desc')
-            ->get()
-            ->toArray();
-
-        return view ('news.index', compact('news', 'archives'));
+        return view ('news.index', compact('news'));
     }
 
     public function show(News $news) {
