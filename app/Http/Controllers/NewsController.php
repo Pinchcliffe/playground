@@ -18,7 +18,7 @@ class NewsController extends Controller
     public function index() {
         $news = News::query()->latest()
             ->filter(request(['month', 'year']))
-            ->get();
+            ->paginate(5);
 
         return view ('news.index', compact('news'));
     }

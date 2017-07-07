@@ -38,6 +38,9 @@
                         </div>
                         <hr>
                     @endforeach
+
+                        {{ $news->links() }}
+
                 @else
                     <p>Ingen nyheter</p>
                 @endif

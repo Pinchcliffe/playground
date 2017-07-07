@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index(Request $request) {
 
         $users = User::query();
-        $users = $users->orderBy('name', 'DESC')->get();
+        $users = $users->orderBy('name', 'DESC')->paginate(25);
 
 
         return View('users.index',
@@ -46,7 +46,7 @@ class UserController extends Controller
         User::create([
             'name' => request('name'),
             'email' => request('email'),
-            'password' => request('password')
+            'password' => bcrypt(request('password'))
         ]);
 
         // Metode 2
