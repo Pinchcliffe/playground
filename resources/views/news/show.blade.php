@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><a href="{{ url('/news') }}">Nyheter</a></div>
         <div class="panel-body">
             <h1>{{ $news->title }}</h1>
             <small>Publisert: {{ $news->created_at }} - Skrevet av: {{ $news->user->name }}</small>
@@ -21,7 +20,7 @@
         <div class="panel-body">
             @if(count($news->comments) > 0)
             @foreach ($news->comments as $comment)
-                    <small>Av: {{ $comment->user->name }} - {{ $comment->created_at->diffForHumans() }}</small>
+                    <div class="label label-primary"><small>{{ $comment->user->name }} commented {{ $comment->created_at->diffForHumans() }}..</small></div>
                     <div class="alert alert-info">{{ $comment->content }}</div>
             @endforeach
             @else
@@ -35,7 +34,7 @@
                         <textarea class="form-control" id="content" name="content" placeholder="Hva har du på hjertet?" rows="2" required="required"></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Kommenter</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Kommenter</button>
                     </div>
                 </form>
         </div>

@@ -3,8 +3,10 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">
-                Brukere <span class="label label-primary">{{ $users->total() }}</span>
-                <a href="users/new"><button class="btn btn-xs btn-primary pull-right">Ny bruker</button></a>
+            Brukere <span class="label label-primary">{{ $users->total() }}</span>
+            <div class="pull-right">
+                <a href="users/new"><button class="btn btn-xs btn-primary">Ny bruker</button></a>
+            </div>
         </div>
 
         <table class="table table-striped table-hover table-bordered table-responsive">
