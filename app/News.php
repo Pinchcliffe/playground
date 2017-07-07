@@ -35,6 +35,7 @@ class News extends Model
              'user_id' => auth()->id()
          ]);
 
+
          // Metode 2
          /*
          Comment::create([
@@ -43,6 +44,7 @@ class News extends Model
          ]);
          */
      }
+
 
      public function scopeFilter($query, $filters)
      {

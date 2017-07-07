@@ -14,6 +14,8 @@
         </div>
     </div>
 
+    @include('layouts.error')
+
     <div class="panel panel-default">
         <div class="panel-heading">Kommentarer <span class="label label-primary">{{ count($news->comments) }}</span></div>
         <div class="panel-body">
@@ -36,7 +38,6 @@
                         <button type="submit" class="btn btn-primary">Kommenter</button>
                     </div>
                 </form>
-                @include('layouts.error')
         </div>
     </div>
 @endsection
