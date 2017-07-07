@@ -20,7 +20,9 @@ class NewsController extends Controller
             ->filter(request(['month', 'year']))
             ->paginate(5);
 
-        return view ('news.index', compact('news'));
+        $archives = News::archives();
+
+        return view ('news.index', compact('news', 'archives'));
     }
 
     public function show(News $news) {

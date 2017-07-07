@@ -23,7 +23,7 @@
                 </div>
                 <hr>
             @endforeach
-            {{ $news->links() }}
         </div>
     </div>
+    {{ $news->appends(['month' => $_GET['month'], 'year' => $_GET['year']])->links() }}
 @endsection
