@@ -15,15 +15,19 @@
                         <b>{{ $new->intro }}</b><br><br>
                         <a href="/news/{{ $new->id }}"><span class="glyphicon glyphicon-info-sign"></span> Les mer</a>
                     </div>
-                    <div class="col-md-4">
-                        <a href="/news/{{ $new->id }}">
-                            <img class="img-responsive" src="{{ $new->image }}" />
-                        </a>
-                    </div>
+                    @if ($new->image != '')
+                        <div class="col-md-4">
+                            <a href="/news/{{ $new->id }}">
+                                <img class="img-responsive" src="{{ $new->getImagePath() }}" alt="..." />
+                            </a>
+                        </div>
+                    @endif
                 </div>
                 <hr>
             @endforeach
         </div>
     </div>
-    {{ $news->appends(['month' => $_GET['month'], 'year' => $_GET['year']])->links() }}
+
+            {{ $news->appends(['month' => isset($_GET['month']) ? $_GET['month'] : '', 'year' => isset($_GET['year']) ? $_GET['year'] : ''])->links() }}
+
 @endsection

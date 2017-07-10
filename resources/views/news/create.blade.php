@@ -6,15 +6,15 @@
     <div class="panel panel-default">
         <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> Skriv nyhet</div>
         <div class="panel-body">
-            <form method="POST" action="/news">
+            <form method="POST" action="/news" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="title">Tittel</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Tittel">
                 </div>
                 <div class="form-group">
-                    <label for="image">Bilde</label>
-                    <input type="text" class="form-control" id="image" name="image" placeholder="Lim inn URL..">
+                    <label for="image">Last opp bilde</label>
+                    <input type="file" id="image" name="image">
                 </div>
                 <div class="form-group">
                     <label for="intro">Ingress</label>

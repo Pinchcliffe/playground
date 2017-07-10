@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use Image;
 use Carbon\Carbon;
 use Validation;
 use App\News;
@@ -20,9 +22,7 @@ class NewsController extends Controller
             ->filter(request(['month', 'year']))
             ->paginate(5);
 
-        $archives = News::archives();
-
-        return view ('news.index', compact('news', 'archives'));
+        return view ('news.index', compact('news'));
     }
 
     public function show(News $news) {
@@ -35,11 +35,12 @@ class NewsController extends Controller
         return view('news.create');
     }
 
-    public function store() {
+    public function store(Request $request) {
 
         $this->validate(request(), [
             'title' => 'required',
             'intro' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'content' => 'required'
         ]);
 
@@ -50,16 +51,28 @@ class NewsController extends Controller
             ]))
         );*/
 
+        $image = $request->file('image');
+
+        $name = time().'.'.$image->getClientOriginalExtension();
+
+        $destinationPath = public_path('/uploads/news');
+
+        $storedAs = $image->move($destinationPath, $name);
+
+        if ($storedAs) {
+            News::create([
+                'title' => request('title'),
+                'intro' => request('intro'),
+                'content' => request('content'),
+                'user_id' => Auth::user()->id,
+                'image' => $name
+            ]);
+        } else {
+            // TODO Handle error in saving image
+        }
 
         // Metode 2
 
-        News::create([
-            'title' => request('title'),
-            'image' => request('image'),
-            'intro' => request('intro'),
-            'content' => request('content'),
-            'user_id' => 1
-        ]);
 
         // Metode 3
 

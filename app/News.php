@@ -68,4 +68,9 @@ class News extends Model
              ->get()
              ->toArray();
      }
+
+     public function getImagePath()
+     {
+         return url('uploads/news/' . $this->image);
+     }
 }

@@ -6,8 +6,10 @@
             <h1>{{ $news->title }}</h1>
             <small>Publisert: {{ $news->created_at }} - Skrevet av: {{ $news->user->name }}</small>
             <hr>
-            <img class="img-responsive" src="{{ $news->image }}" />
+            @if ($news->image != '')
+            <img class="img-responsive" src="{{ $news->getImagePath() }}" />
             <hr>
+            @endif
             <b>{{ $news->intro }}</b>
             <p>{{ $news->content }}</p>
         </div>
