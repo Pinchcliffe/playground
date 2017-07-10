@@ -33,7 +33,9 @@
             @if(count($news->comments) > 0)
             @foreach ($news->comments as $comment)
                     <div class="label label-primary"><small>{{ $comment->user->name }} commented {{ $comment->created_at->diffForHumans() }}..</small></div>
-                    <div class="alert alert-info">{{ $comment->content }}</div>
+                    <div class="alert alert-info">
+                        {{ $comment->content }}
+                    </div>
             @endforeach
             @else
                 <p>Ingen kommentarer.</p>

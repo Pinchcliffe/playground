@@ -34,7 +34,7 @@
                     <input type="file" id="image" name="image">
                 </div>
                 -->
-                <button type="submit" class="btn btn-primary">Publiser</button>
+                <button type="submit" class="btn btn-primary">Endre</button>
             </form>
         </div>
     </div>

@@ -45,6 +45,15 @@ class News extends Model
          */
      }
 
+    public function delete()
+    {
+
+        // delete all related comments also
+        $this->comments()->delete();
+        // delete the model
+        return parent::delete();
+    }
+
 
      public function scopeFilter($query, $filters)
      {

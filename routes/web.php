@@ -50,3 +50,13 @@ Route::post('/news/{news}', 'CommentsController@store');
  * COMMENTS
  * ----------------------------------------------------------
  */
+
+
+/*
+ * ----------------------------------------------------------
+ * MESSAGES
+ * ----------------------------------------------------------
+ */
+
+//Route::get('messages', 'MessagesController@index');
+//Route::get('messages/new', 'MessagesController@create');

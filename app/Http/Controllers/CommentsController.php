@@ -15,4 +15,12 @@ class CommentsController extends Controller
 
         return back();
     }
+
+    public function delete($comment) {
+
+
+        Comment::query()->find($comment)->delete();
+
+        return back();
+    }
 }
