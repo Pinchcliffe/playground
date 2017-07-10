@@ -106,7 +106,30 @@ class NewsController extends Controller
             'content' => 'required'
         ]);
 
-        News::query()->find($id)->update($request->all());
+        if (request('image') != '') {
+            $image = $request->file('image');
+
+            $name = time() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = public_path('/uploads/news');
+
+            $storedAs = $image->move($destinationPath, $name);
+
+            if ($storedAs) {
+                News::query()->find($id)->update([
+                    'image' => $name
+                ]);
+            } else {
+                // TODO Handle error in saving image
+            }
+
+        }
+
+        News::query()->find($id)->update([
+            'title' => request('title'),
+            'intro' => request('intro'),
+            'content' => request('content'),
+            ]);
 
         return redirect('/news/' . $id);
 
