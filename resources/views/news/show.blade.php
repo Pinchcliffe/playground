@@ -2,7 +2,17 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body news-content">
+            @if (Auth::user()->id == $news->user_id)
+            <div class="button-group pull-right">
+                <h1></h1>
+                <a href="/news/{{ $news->id }}/edit"><button type="button" class="btn btn-primary btn-sm">Rediger</button></a>
+                <form class="form-noblock" method="post" action="/news/{{ $news->id }}/delete">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-danger btn-sm">Slett</button>
+                </form>
+            </div>
+            @endif
             <h1>{{ $news->title }}</h1>
             <small>Publisert: {{ $news->created_at }} - Skrevet av: {{ $news->user->name }}</small>
             <hr>

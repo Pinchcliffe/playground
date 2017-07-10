@@ -38,8 +38,11 @@ Route::get('/users/{user}', 'UserController@show');
 
 Route::get('/news/create', 'NewsController@create');
 Route::get('/news/{news}', 'NewsController@show');
+Route::get('/news/{news}/edit', 'NewsController@edit');
+Route::put('/news/{news}', 'NewsController@update');
 Route::get('/news', 'NewsController@index');
 Route::post('/news', 'NewsController@store');
+Route::post('/news/{news}/delete', 'NewsController@delete');
 Route::post('/news/{news}', 'CommentsController@store');
 
 /*

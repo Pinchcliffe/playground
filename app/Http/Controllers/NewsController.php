@@ -91,4 +91,31 @@ class NewsController extends Controller
 
         return redirect('/');
     }
+
+    public function edit(News $news) {
+
+        return view('news.edit', compact('news'));
+    }
+
+    public function update(Request $request, $id) {
+
+        $this->validate($request, [
+            'title' => 'required',
+            'intro' => 'required',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'content' => 'required'
+        ]);
+
+        News::query()->find($id)->update($request->all());
+
+        return redirect('/news/' . $id);
+
+    }
+
+    public function delete($id) {
+
+        News::query()->find($id)->delete();
+
+        return redirect('/news');
+    }
 }
