@@ -94,7 +94,12 @@ class NewsController extends Controller
 
     public function edit(News $news) {
 
-        return view('news.edit', compact('news'));
+        if ($news->user_id == Auth::user()->id) {
+            return view('news.edit', compact('news'));
+        }
+        else {
+            return back();
+        }
     }
 
     public function update(Request $request, $id) {
