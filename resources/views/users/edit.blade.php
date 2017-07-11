@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     @include('layouts.error')
     <div class="panel panel-default">
         <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> Rediger bruker</div>

@@ -2,7 +2,7 @@
     @if (Auth::user())
         <div class="panel panel-default">
             <div class="panel-heading">
-                Kategorier
+                Tags
             </div>
             <div class="panel-body">
                 <ol class="list-unstyled">

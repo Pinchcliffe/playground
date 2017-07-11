@@ -15,6 +15,14 @@
             @endif
             <h1>{{ $news->title }}</h1>
             <small>Publisert: {{ $news->created_at }} - Skrevet av: {{ $news->user->name }}</small>
+                <br>
+                @if(count($news->tags))
+                    <div style="display: inline-block;">
+                        @foreach($news->tags as $tag)
+                            <a href="/news/tags/{{ $tag->name }}"><span class="label label-primary">{{ $tag->name }}</span></a>
+                        @endforeach
+                    </div>
+                @endif
             <hr>
             @if ($news->image != '')
             <img class="img-responsive" src="{{ $news->getImagePath() }}" />
