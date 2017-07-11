@@ -14,6 +14,7 @@
             <tr>
                 <th class="small">Brukernavn</th>
                 <th class="small">Epost</th>
+                <th class="small">Handlinger</th>
             </tr>
             </thead>
             <tbody>
@@ -21,6 +22,13 @@
                 <tr>
                     <td><a href="users/{{$user->id}}">{{$user->name}}</a></td>
                     <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
+                    <td width="15%">
+                        <form class="form-noblock" action="users/{{$user->id}}/delete" method="POST">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-sm btn-danger">Slett</button>
+                        </form>
+                        <a href="users/{{$user->id}}/edit"><button type="button" class="btn btn-sm btn-primary">Endre</button></a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

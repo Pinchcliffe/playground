@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Playground') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name') }}
                     </a>
                 </div>
 
@@ -85,6 +85,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
+                    @include('flash::message')
                     @yield('content')
                 </div>
 

@@ -29,6 +29,31 @@ class UserController extends Controller
         return view('users.show', ['users' => User::where('id', $users)->first()]);
     }
 
+    public function edit($id) {
+
+        $users = User::query()->find($id);
+
+        return view('users.edit', compact('users'));
+    }
+
+    public function update(Request $request, $id) {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required'
+        ]);
+
+        User::query()->find($id)->update([
+            'name' => request('name'),
+            'email' => request('email'),
+        ]);
+
+        flash('Brukeren ble oppdatert!')->success()->important();
+
+        return redirect('/users/' . $id);
+
+    }
+
     public function create() {
         return view('users.create');
     }
@@ -60,6 +85,17 @@ class UserController extends Controller
 
         $user->save();
         */
+
+        flash('Brukeren ble opprettet!')->success()->important();
+
+        return redirect('/users');
+    }
+
+    public function delete($id) {
+
+        User::query()->find($id)->delete();
+
+        flash('Brukeren ble slettet!')->success()->important();
 
         return redirect('/users');
     }

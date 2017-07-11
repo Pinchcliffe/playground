@@ -26,9 +26,12 @@ Route::get('/home', 'HomeController@index')->name('home');
  */
 
 Route::get('/users', 'UserController@index');
-Route::post('/users', 'UserController@store');
 Route::get('/users/new', 'UserController@create');
 Route::get('/users/{user}', 'UserController@show');
+Route::get('/users/{user}/edit', 'UserController@edit');
+Route::post('/users', 'UserController@store');
+Route::put('/users/{user}', 'UserController@update');
+Route::post('/users/{user}/delete', 'UserController@delete');
 
 /*
  * ----------------------------------------------------------

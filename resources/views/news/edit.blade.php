@@ -13,9 +13,11 @@
                     <label for="title">Tittel</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Tittel" value="{{ $news->title }}">
                 </div>
+                @if ($news->image != '')
                 <div class="form-group">
                     <img class="img-responsive" width="33%" src="{{ $news->getImagePath() }}" />
                 </div>
+                @endif
                 <div class="form-group">
                     <label for="image">Last opp bilde</label>
                     <input type="file" id="image" name="image" value="{{ $news->getImagePath() }}">

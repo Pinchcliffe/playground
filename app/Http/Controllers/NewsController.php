@@ -89,6 +89,8 @@ class NewsController extends Controller
         $news->save();
         */
 
+        //flash('Nyheten ble opprettet!')->success()->important();
+
         return redirect('/');
     }
 
@@ -136,6 +138,8 @@ class NewsController extends Controller
             'content' => request('content'),
             ]);
 
+        flash('Nyheten ble oppdatert!')->success()->important();
+
         return redirect('/news/' . $id);
 
     }
@@ -143,6 +147,8 @@ class NewsController extends Controller
     public function delete($id) {
 
         News::query()->find($id)->delete();
+
+        flash('Nyheten ble slettet!')->success()->important();
 
         return redirect('/news');
     }
