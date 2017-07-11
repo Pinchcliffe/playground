@@ -13,4 +13,6 @@ class TagsController extends Controller
 
         return view('news.index', compact('news'));
     }
+
+    // TODO: Mulighet for å legge til tags når man oppretter newsgit st
 }
