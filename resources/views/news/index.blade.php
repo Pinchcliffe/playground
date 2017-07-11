@@ -28,6 +28,10 @@
         </div>
     </div>
 
-            {{ $news->appends(['month' => isset($_GET['month']) ? $_GET['month'] : '', 'year' => isset($_GET['year']) ? $_GET['year'] : ''])->links() }}
+    @if (isset($_GET['month']) && $_GET['year'] != NULL)
+     {{ $news->appends(['month' => isset($_GET['month']) ? $_GET['month'] : '', 'year' => isset($_GET['year']) ? $_GET['year'] : ''])->links() }}
+    @else
+
+    @endif
 
 @endsection

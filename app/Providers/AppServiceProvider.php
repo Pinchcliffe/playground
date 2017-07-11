@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.sidebar', function ($view) {
 
             $view->with('archives', \App\News::archives());
+            $view->with('tags', \App\Tag::has('news')->pluck('name'));
 
         });
     }

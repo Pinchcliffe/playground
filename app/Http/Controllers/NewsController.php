@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Validation;
 use App\News;
 use App\User;
+use App\Tag;
 
 class NewsController extends Controller
 {

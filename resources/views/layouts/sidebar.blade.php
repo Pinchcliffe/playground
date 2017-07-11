@@ -2,6 +2,21 @@
     @if (Auth::user())
         <div class="panel panel-default">
             <div class="panel-heading">
+                Kategorier
+            </div>
+            <div class="panel-body">
+                <ol class="list-unstyled">
+                    @foreach ($tags as $tag)
+
+                        <li><a href="/news/tags/{{ $tag }}">{{ $tag }}</a></li>
+
+                    @endforeach
+                </ol>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 Nyhetsarkiv
             </div>
             <div class="panel-body">
